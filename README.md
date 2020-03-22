@@ -19,8 +19,5 @@ npm run build
 ```
 npm run lint
 ```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
-# Test
-# Vue-
+使用Vue cil4  搭建的移动端音乐项目
+//持续更新中
