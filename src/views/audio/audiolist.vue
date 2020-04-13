@@ -2,7 +2,7 @@
   <div class="page">
      <div class="dio" v-if= "this.songdata.num==1"><img class="smallimg" :src="songdata.img" alt="">
     <div class="line">
-      <div class="playline" :style="{'width': w+'vw'}"></div>
+      <div class="playline" ref="line"></div>
     </div>
      <div class="poaudio">
        <audio :src="musicUrl" id="audio" autoplay='autoplay'></audio>
@@ -42,10 +42,10 @@ export default {
   data(){
     return{
     musicUrl:{},
-    isplay:false,
-    w:''
+    isplay:false
     }
   },
+     w:'', 
   computed:{
     musicid(){
       return this.$store.state.songdata.id
@@ -54,11 +54,12 @@ export default {
       return this.$store.state.songdata
     }
   },
-  updated(){
+ updated(){
     this.getMusicUrl()
   },
   created(){
     this.line()
+  
   },
   methods:{
     getMusicUrl(){
@@ -78,14 +79,13 @@ export default {
       this.isplay = false
     },
    line(){
-      
       const that = this 
       that.w=0
      setInterval(() => {
          let au = document.getElementById('audio')
-      const that = this 
-       that.w = (au.currentTime/au.duration) * 100
-    
+       let w  = (au.currentTime/au.duration) * 100
+      this.$refs.line.style.width = w+'vw'
+      
       }, 1000);
   
     }
