@@ -4,10 +4,10 @@
    <navbar><div slot="left" @click="backclick"><svg class="icon" aria-hidden="true">
   <use xlink:href="#icon-fanhui"></use>
 </svg></div>
-<div slot="center">搜索结果</div></navbar>
+<div slot="center" id="center">搜索结果</div></navbar>
    <img :src="searchResult[0].artists[0].img1v1Url" alt="">
    <div>
-     <ul><li @click.stop="listclick(item.id,index,1)" :key="index" v-for="(item,index) in searchResult">
+     <ul class="main"><li @click.stop="listclick(item.id,index,1)" :key="index" v-for="(item,index) in searchResult">
         <svg class="icon" aria-hidden="true">
   <use xlink:href="#icon-yinyue"></use>
 </svg>
@@ -77,7 +77,7 @@ created(){
 
 <style scoped>
 .icon {
-  position: absolute;
+  position: relative;
  left: -15px;
   width: 1.5em;
   height: 1.5em;
@@ -92,6 +92,10 @@ created(){
 img{
   width: 100%;
 }
+.main{
+  height: 400px;
+  overflow-y: auto;
+}
 li{
   width: 100%;
   overflow: hidden;
@@ -100,10 +104,12 @@ li{
 }
 .arcl{
   display: inline-block;
-  margin-left: 60px;
 
 }
  li:nth-child(odd){
   background-color: #473f3f;
+}
+#center{
+  
 }
 </style>

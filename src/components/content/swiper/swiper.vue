@@ -1,6 +1,6 @@
 <template>
   <div class="swiper">
-   <img :src="imglist[currentIndex]">
+   <img :src="imglist[currentIndex].picUrl">
    <ul>
     <li :key="index" v-for="(item,index) in imglist"  :class="{'current':currentIndex === index}"></li>
    </ul>
@@ -8,15 +8,17 @@
 </template>
 
 <script>
+import {getbanner} from '../../../network/getbanner.js';
 export default {
   data(){
     return {
-      imglist:["http://chuantu.xyz/t6/724/1584279340x989559068.jpg" ,"http://chuantu.xyz/t6/724/1584279379x2728265612.jpg" ,"http://chuantu.xyz/t6/724/1584279413x2728265612.jpg" ],
+      imglist:{},
       currentIndex:0
     }
   },
   mounted(){
     this.playswiper()
+    this.getbanner()
   },
   methods:{
     playswiper(){
@@ -27,6 +29,12 @@ export default {
          that.currentIndex=0
        }
      },4000)
+    },
+    getbanner(){
+      const that = this
+      getbanner().then(res =>{
+        that.imglist = res.banners
+      })
     }
   }
 }
@@ -47,7 +55,7 @@ img{
 ul{
     position: absolute;
   top: 230px;
-  margin-left: 43vw;
+  margin-left: 23vw;
 }
 li{
   float: left;

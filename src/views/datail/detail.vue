@@ -97,6 +97,10 @@ display: -webkit-box;
 overflow: hidden;
 
 }
+ul{
+  height: 400px;
+  overflow-y: auto;
+}
 #cover{
   width:100%;
   margin: 0 auto;

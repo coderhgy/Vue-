@@ -5,7 +5,7 @@
 </svg></div> <div slot="center" class="center">{{data.name}}</div></Navbar>
 
     <video :src="mvurl" controls autoplay></video>
-    热门评论
+    <p>热门评论</p>
     <ul><li :key="index" v-for="(item,index) in hotcom">
       <img :src="item.user.avatarUrl"> <span>{{item.user.nickname}}</span>
       <article>{{item.content}}</article>
@@ -80,8 +80,13 @@ video{
   width: 100%;
   margin-top: 15px;
 }
+p{
+  color: orange;
+  height: 30px;
+  line-height: 30px;
+}
 .center{
-  width: 49px;
+  width: 90px;
   margin: 0 auto;
   height: 49px;
   line-height: 49px;
@@ -93,6 +98,10 @@ img{
   border-radius: 50px;
   margin-left: 20px;
   margin-top: 20px;
+}
+ul{
+  height: 400px;
+  overflow-y: auto;
 }
 li{
   position: relative;

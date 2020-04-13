@@ -55,7 +55,7 @@ img {
 }
 ul{
   margin-top: 98px;
-  height: 500px;
+  height:calc(100vh - 100px);
   overflow-y: auto;
 }
 li{

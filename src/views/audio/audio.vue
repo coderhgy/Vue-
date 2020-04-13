@@ -8,7 +8,7 @@
      <div class="img"><img :src="songdata.img" alt=""></div>
    <div class="main"><ul><li :class="{active : index==0}" :key="index" v-for="(item,index) in list">{{item}}</li>
      </ul></div>
-  <ul>
+  <ul class="contentmain">
     <li :key="index" v-for="(item,index) in hotcomdata">
     <div id="pic"><img v-lazy="item.user.avatarUrl"></div>
     <p class="nickname">{{item.user.nickname}}</p>
@@ -79,6 +79,10 @@ img{
 }
 .bg{
 
+}
+.contentmain{
+  height: calc(100vh - 220px);
+  overflow-y: auto;
 }
 .icon {
   position: absolute;
